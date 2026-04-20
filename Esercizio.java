@@ -21,7 +21,7 @@ class Esercizio {
 
             if (nome.equals("x")) {
                 System.out.println("Programma terminato.");
-                break;
+                
             }
 
             //Output del nome acquisito da tastiera
@@ -32,7 +32,7 @@ class Esercizio {
             }
         }
 
-        in.close();
+        
     }
 
     public static boolean isPalindroma(String parola) {
