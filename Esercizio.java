@@ -14,12 +14,40 @@ class Esercizio {
         //Creo l'oggetto in per l'input da tastiera
         Scanner in = new Scanner( System.in );
 
-        //Leggo l'input da tastiera
-        System.out.print("Inserisci il tuo nome: ");
-        nome = in.nextLine();
+        while (true) {
+            //Leggo l'input da tastiera
+            System.out.print("Inserisci una parola (x per uscire): ");
+            nome = in.nextLine();
 
-        //Output del nome acquisito da tastiera
-        System.out.println("Ciao "+nome+"!");
+            if (nome.equals("x")) {
+                System.out.println("Programma terminato.");
+                break;
+            }
+
+            //Output del nome acquisito da tastiera
+            if (isPalindroma(nome)) {
+                System.out.println("\"" + nome + "\" è palindroma!\n");
+            } else {
+                System.out.println("\"" + nome + "\" NON è palindroma.\n");
+            }
+        }
+
+        in.close();
+    }
+
+    public static boolean isPalindroma(String parola) {
+        Pila<Character> pila = new Pila<>();
+
+        for (int i = 0; i < parola.length(); i++) {
+            pila.push(parola.charAt(i));
+        }
+
+        String inversa = "";
+        while (!pila.isEmpty()) {
+            inversa += pila.pop();
+        }
+
+        return parola.equals(inversa);
     }
 }
 
